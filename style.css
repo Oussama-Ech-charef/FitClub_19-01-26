@@ -119,6 +119,101 @@ nav {
     background-color: var(--primary-color);
 }
 
+header {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    padding-top: 5rem;
+}
+
+header::before,
+header::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  max-width: 40rem;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border: 6rem solid var(--extra-light);
+  border-radius: 100%;
+  z-index: -1;
+}
+
+header::after {
+  max-width: 80rem;
+}
+
+.header__img {
+  overflow: hidden;
+}
+
+.header__content {
+    padding: 1rem;
+}
+
+.header__content h1 {
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    line-height: 5rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.header__content .section__description {
+    margin-bottom: 3rem;
+}
+
+.header__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.header__links img {
+    max-width: 125px;
+}
+
+
+
+.workout__container {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 0;
+    display: grid;
+}
+.workout__wrapper {
+    overflow: hidden;
+}
+
+.workout__images {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    animation: scroll-left 20s linear infinite;
+}
+
+
+@keyframes scroll-left {
+    to {
+        transform: translateX(calc(-50% - 0.5rem))
+    }
+}
+
+.workout__images img {
+    max-width: 350px;
+    border-radius: 1rem;
+}
+
+.workout__content {
+    padding: 2rem 1rem;
+}
+
+
 
 
 @media (width > 768px) {
@@ -139,4 +234,33 @@ nav {
     .nav__btns .btn span:nth-child(2) {
         display: block;
     }
+      header {
+    padding-top: 0;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, calc(var(--max-width) / 2))
+      minmax(0, calc(var(--max-width) / 2))
+      minmax(0, 1fr);
+    align-items: center;
+  }
+    .header__img {
+      grid-column: 2/3;
+    }
+      .header__content :is(h1, .section__description) {
+        text-align: left;
+      }
+        .header__links {
+          justify-content: flex-start;
+        }
+
+      .workout__container {
+        grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, calc(var(--max-width) / 2))
+        minmax(0, calc(var(--max-width) / 2))
+        minmax(0, calc(var(--max-width) / 2))
+        minmax(0, 1fr);
+        align-items: center;
+  }
+      
 }
