@@ -194,7 +194,7 @@ header::after {
     align-items: center;
     gap: 1rem;
 
-    animation: scroll-left 20s linear infinite;
+    animation: scroll-left 30s linear infinite;
 }
 
 
@@ -212,6 +212,39 @@ header::after {
 .workout__content {
     padding: 2rem 1rem;
 }
+
+.story__container {
+  display: grid;
+  gap: 2rem;
+
+  overflow: hidden;
+}
+
+.story__image img {
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.story__content .section__description {
+  margin-bottom: 1rem;
+}
+
+.story__link {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.story__link a {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.story__link a:hover {
+  color: var(--primary-color);
+}
+
+
+
 
 
 
@@ -262,5 +295,29 @@ header::after {
         minmax(0, 1fr);
         align-items: center;
   }
+  .workout__wrapper {
+    grid-row: 1/2;
+    grid-column: 3/6;
+    
+  }
       
+  .workout__content {
+    grid-column: 2/3;
+  }
+    .workout__content :is(.section__header, .section__description) {
+    text-align: left;
+  }
+    .story__container {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+  
+    .story__content :is(.section__header, .section__description, .story__link) {
+      text-align: left;
+    }
+
+
+
+
+
 }
