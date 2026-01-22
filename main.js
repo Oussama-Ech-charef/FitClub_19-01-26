@@ -39,3 +39,25 @@ ScrollReveal().reveal(".workout__content .section__description", {
   ...scrollRevealOption,
   delay: 500,
 });
+
+ScrollReveal().reveal(".story__image img",{
+    ...scrollRevealOption,
+    origin: "left",
+});
+
+ScrollReveal().reveal(".story__content .section__header", {
+    ...scrollRevealOption,
+    delay: 500,
+});
+ScrollReveal().reveal(".story__content .section__description", {
+    ...scrollRevealOption,
+    delay: 1000,
+    interval: 500,
+});
+
+ScrollReveal().reveal(".story__link", {
+    ...scrollRevealOption,
+    delay: 2000,
+});
+
+
